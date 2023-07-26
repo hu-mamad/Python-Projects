@@ -31,13 +31,14 @@ def unit_validate(unit):
     except ValueError:
             exit("Your input is not a string ")
 
+while True:
+    days = input("Enter the number of days you want to convert : (Enter 'q' to exit) ")
+    if days == "q":
+        exit("Goodbye")
+    print(day_validate(days))
 
-days = input("Enter the number of days you want to convert : ")
-print(day_validate(days))
+    units = input("Convert to hours and minutes? ")
+    print(unit_validate(units))
 
-units = input("Convert to hours and minutes? ")
-print(unit_validate(units))
-
-resulte = days_of_units(days, units)
-
-print(resulte)
+    resulte = days_of_units(days, units)
+    print(resulte)
