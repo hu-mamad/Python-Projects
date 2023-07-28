@@ -1,4 +1,4 @@
-import requests
+from flask import Flask, jsonify
 from minio import Minio
 from minio.error import S3Error
 
@@ -8,6 +8,8 @@ MINIO_SECRET_KEY = "11236939"
 USE_SSL = True 
 
 BUCKET_NAMES = ["dorak", "hunter"]
+
+hunt = Flask(__name__)
 
 def create_minio_buckets():
     minio_client = Minio(
@@ -25,5 +27,10 @@ def create_minio_buckets():
     except S3Error as err:
         print(f"Error: {err}")
 
-if __name__ == "__main__":
+def create_buckets():
     create_minio_buckets()
+    return jsonify({"message": "Buckets created successfully"}), 200
+
+
+if __name__ == "__main__":
+    hunt.run(host="0.0.0.0", port=5000)
