@@ -2,17 +2,14 @@ import requests
 from minio import Minio
 from minio.error import S3Error
 
-# Minio server configuration
 MINIO_ENDPOINT = "https://miinioapi.duckdns.org"
 MINIO_ACCESS_KEY = "python-test"
 MINIO_SECRET_KEY = "11236939"
 USE_SSL = True 
 
-# List of bucket names you want to create
 BUCKET_NAMES = ["dorak", "hunter"]
 
 def create_minio_buckets():
-    # Initialize Minio client
     minio_client = Minio(
         endpoint=MINIO_ENDPOINT,
         access_key=MINIO_ACCESS_KEY,
