@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from minio import Minio
 from minio.error import S3Error
 
@@ -27,10 +27,10 @@ def create_minio_buckets():
     except S3Error as err:
         print(f"Error: {err}")
 
+@hunt.route("/create_buckets", methods=["POSTMAN"])
 def create_buckets():
     create_minio_buckets()
     return jsonify({"message": "Buckets created successfully"}), 200
 
-
-if __name__ == "__main__":
-    hunt.run(host="0.0.0.0", port=5000)
+#if __name__ == "__main__":
+hunt.run(host="0.0.0.0", port=5000)
