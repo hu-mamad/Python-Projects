@@ -15,7 +15,5 @@ def switch(x):
     if x == 1:
         print(Fore.LIGHTYELLOW_EX + f"Total buckets: ", len(client.list_buckets()) + Style.RESET_ALL)
 
-
-
-
 client_input = int(input())
+print(switch(client_input))
