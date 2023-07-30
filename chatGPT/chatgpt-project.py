@@ -1,10 +1,10 @@
 import requests
 
 api_enpoint = "https://api.openai.com/v1/completions"
-api_key = "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"
+api_key = "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"
 request_headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer" + api_enpoint
+    "Authorization": "Bearer" + api_key
 }
 
 request_data = {
@@ -16,8 +16,4 @@ request_data = {
 
 response = requests.post(api_enpoint, headers=request_headers, json=request_data)
 
-if response.status_code == 200:
-    print(response.json())
-else:
-    print(f"Request failed with status code: {str(response.status_code)}")
-    
+print(response.json())    
