@@ -34,7 +34,7 @@ while True:
                 result = minio_functions.delete_object()
                 return  result
             else:
-                return "Your a number should be between 1 and 6 :)"
+                return "Your a number should be between 1 and 7 :)"
         except ValueError:
             return "Your input is not a number :("
             

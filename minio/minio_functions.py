@@ -2,10 +2,10 @@ from colorama import Fore, Back, Style
 from minio import Minio
 from minio.error import S3Error
 # Define my self as a client   
-client = Minio(endpoint="miinioapi.duckdns.org",
-    access_key="biighunter",
-    secret_key="11236939",
-    secure=True)
+client = Minio(endpoint="---your-http-endpoint---",
+    access_key="---your-access-key---",
+    secret_key="---your-secret-key---",
+    secure=True)# IF YOUR ENDPOINT ARE USING HTTPS IT SHOULD BE TRUE
 # ------------Buckets------------- #
 # Buckets list
 def list_buckets():
