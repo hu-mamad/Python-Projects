@@ -1,4 +1,3 @@
-from flask import Flask, render_template, request, jsonify
 from colorama import Fore, Back, Style
 from minio import Minio
 from minio.error import S3Error
