@@ -23,11 +23,10 @@ just Upload, Download and Delete)
 
 
 guide to run my app:
-1. First of all you need to install these python libraries:
-    - sudo apt-get install python3
-    - pip3 install flask
-    - pip3 install request
-    - pip3 install minio
+1. First of all you need to install requirements libraries,
+for that, in your cloned folder you'll see 
+"requirements.txt", Follow below coomand:
+    - pip install -r requirements.txt
 3. Install minio client on your server:
     Linux(Ubuntu/Debian):
     - sudo apt-get update
