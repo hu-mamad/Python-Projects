@@ -76,8 +76,14 @@ while True:
     def upload_object():
         try:
             bucket_name = input("Enter the bucket name: ").strip()
+            if bucket_name == "quit":
+                    exit("Goodbye Fella :)" + Style.RESET_ALL)
             object_name = input("Enter the object name: ").strip()
+            if object_name == "quit":
+                    exit("Goodbye Fella :)" + Style.RESET_ALL)
             file_path = input("Enter the path of the file you want to upload: ").strip()
+            if file_path == "quit":
+                    exit("Goodbye Fella :)" + Style.RESET_ALL)
 
             if not client.bucket_exists(bucket_name):
                 return f"{bucket_name} bucket does not exist :("
@@ -98,7 +104,30 @@ while True:
     # Download a Object
     
     def download_object():
-        
+        try:
+            bucket_name = input("Enter the bucket name: ").strip()
+            object_name = input("Enter the object name: ").strip()
+            save_path = input("Enter the path where you want to save the downloaded file: ").strip()
+
+            if not client.bucket_exists(bucket_name):
+                return f"{bucket_name} bucket does not exist :("
+            else:
+                try:
+                    # Retrieve the object from Minio
+                    response = client.get_object(bucket_name, object_name)
+
+                    # Save the object content to the specified path
+                    with open(save_path, "wb") as file_data:
+                        for data in response.stream(32 * 1024):
+                            file_data.write(data)
+                    
+                    return f"{object_name} Successfully downloaded from {bucket_name} and saved to {save_path}"
+                except S3Error as err:
+                    return f"Error: {err}"
+                except FileNotFoundError:
+                    return "File not found."
+        except Exception as e:
+            return f"Error: {e}"        
     
     
     def switch(x):
